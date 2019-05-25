@@ -293,10 +293,11 @@ Code/Go/lngo/vendor
 # C
 *.dSYM
 
-hello
 node_modules
 
 # docker data dir
 .data
 test/coverage.*
 test/tests.*
+
+rootfs/
