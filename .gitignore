@@ -296,7 +296,6 @@ Code/Go/lngo/vendor
 node_modules
 
 # docker data dir
-vendor
 .data
 test/coverage.*
 test/tests.*
