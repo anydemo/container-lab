@@ -15,7 +15,7 @@ M = $(shell printf "\033[34;1m▶\033[0m")
 PKG ?= ./...
 
 export GO111MODULE=on
-export GOPROXY=https://goproxy.io
+export GOPROXY=https://goproxy.cn
 
 default: help
 
