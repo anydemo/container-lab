@@ -1,4 +1,4 @@
-PACKAGE  = go-boilerplate
+PACKAGE ?= go-boilerplate
 DATE    ?= $(shell date +%FT%T%z)
 VERSION ?= $(shell git describe --tags --always --dirty --match=v* 2> /dev/null || \
 			cat $(CURDIR)/.version 2> /dev/null || echo v0)
@@ -27,8 +27,12 @@ all: fmt lint $(BIN) ; $(info $(M) building executable…) @ ## Build program bi
 		-o $(BIN)/$(PACKAGE) main.go
 
 .PHONY: run
-run: fmt lint ; $(info $(M) gorun pkg...) @ ## run from some path eq: make run PKG=containerd-demo/*.go
+run: fmt lint ; $(info $(M) gorun pkg...) @ ## run from some path eq: make E=containerd-demo/*.go
 	$Q sudo $(GO) run ${ARGS} ${PKG}
+
+.PHONY: build
+build: fmt lint ; 
+	$Q $(GO) build ${ARGS} -mod=vendor -o $(BIN)/$(PACKAGE) ${PKG}
 
 # Tools
 
